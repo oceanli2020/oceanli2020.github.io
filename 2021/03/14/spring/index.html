@@ -403,14 +403,14 @@
     #toc-content .toc-link::before {
         background-color: transparent;
         max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
+        left:0;
     }
 
     #toc-content .is-active-link {
         color: #42b983;
+    }
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
     }
 
     #floating-toc-btn {
@@ -481,7 +481,7 @@
                 
                 <div class="info-break-policy" style="font-style: italic;">
                     <i class="far fa-file-word fa-fw"></i>文章字数 :&nbsp;&nbsp;
-                    411
+                    412
                 </div>
                 
 
@@ -520,7 +520,10 @@ IOC(控制反转)：对象会自动注入，不用自己创建对象</code></pre
 <span class="token annotation punctuation">@Component</span>  <span class="token comment">// 泛指</span>
 <span class="token annotation punctuation">@Repository</span> <span class="token comment">// 持久层</span>
 <span class="token annotation punctuation">@Controller</span> <span class="token comment">// Web处理层</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 </li>
+</ol>
+<h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><ol start="2">
 <li><p>AOP：面向切面变成的思想  - - - - - 为分散的对象引入公共行为，分离应用的业务逻辑和系统级服务，常用于日志和事务管理</p>
 <p>需求：多个业务需要同一份代码，AOP维护同一份代码，动态加入需要的内容</p>
 <p>实现方式：（代理模式）</p>
@@ -1118,7 +1121,7 @@ IOC(控制反转)：对象会自动注入，不用自己创建对象</code></pre
 
     </div>
     <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
+        <div class="toc-widget">
             <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
             <div id="toc-content"></div>
         </div>
@@ -1150,14 +1153,15 @@ IOC(控制反转)：对象会自动注入，不用自己创建对象</code></pre
         let tocHeading = 'toc-heading-';
         $('#toc-content a').each(function () {
             $(this).attr('href', '#' + tocHeading + (++i));
+            console.log(this)
         });
 
         // modify the heading title id to support Chinese.
         i = 0;
         $('#articleContent').children('h2, h3, h4').each(function () {
             $(this).attr('id', tocHeading + (++i));
+            console.log(this)
         });
-
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
         let $tocWidget = $('.toc-widget');
