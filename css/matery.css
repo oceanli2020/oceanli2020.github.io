@@ -1683,7 +1683,7 @@ thead {
     padding: 3.8rem 1.5rem 0.8rem 1.5rem;
 }
 
-.post-charts,
+
 .title,
 .my-projects .title,
 .my-skills .title,
@@ -1721,6 +1721,7 @@ thead {
 }
 
 .my-projects .info .info-desc {
+    word-break:break-all;
     margin: 0 0 10px;
     font-size: 0.9rem;
     color: #999;
